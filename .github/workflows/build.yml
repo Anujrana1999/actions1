@@ -6,10 +6,6 @@ jobs:
         steps: 
             - name: Get code
               uses: actions/checkout@v4
-            - name: Use Node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: '18'
     build-app:
         needs: get-code
         runs-on: ubuntu-latest
