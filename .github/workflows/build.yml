@@ -1,0 +1,20 @@
+name: Make build
+on: push
+jobs: 
+    get-code: 
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Get code
+              uses: actions/checkout@v4
+    build-app:
+        needs: get-code
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build app
+              run: npm run build
+    upload-build:
+        needs: build-app
+        runs-on: ubuntu-latest
+        steps:
+            - name: Upload build
+              uses: actions/upload-artifact@v4
