@@ -1,17 +1,17 @@
 name: Make build
 on: [push, workflow_dispatch]
 jobs: 
-    get-code: 
+    get-build-code: 
         runs-on: ubuntu-latest
         steps: 
-            - name: Get code
+            - name: Get code & build
               uses: actions/checkout@v4
             - name: Install deps
               run: npm ci
             - name: Build app
               run: npm run build
     upload-build:
-        needs: get-code
+        needs: get-build-code
         runs-on: ubuntu-latest
         steps:
             - name: Upload build
