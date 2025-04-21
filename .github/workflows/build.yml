@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Install deps
-              run: npm ci
+              run: npm help ci
             - name: Build app
               run: npm run build
     upload-build:
